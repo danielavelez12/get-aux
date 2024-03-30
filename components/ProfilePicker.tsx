@@ -5,7 +5,7 @@ const ProfilePicker = ({ setIsDisabled, setDJName }: {setIsDisabled:any, setDJNa
     const [inputValue, setInputValue] = useState('');
 
     // Update both the state and the parent component's state on input change
-    const handleInputChange = (e) => {
+    const handleInputChange = (e:any) => {
         const newValue = e.target.value;
         setInputValue(newValue); // Update local state
     };

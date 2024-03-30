@@ -40,7 +40,7 @@ const PlaylistOptions = [
 const styles = {
   playlistContainer: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column' as const,
     maxHeight: '100px',
     overflow: 'auto',
     padding: '20px',
@@ -60,8 +60,8 @@ const styles = {
     backgroundColor: '#C65B7C',
   },
   playContainer: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: 'flex' as const,
+    flexDirection: 'column' as const,
     alignItems: 'center',
     gap: '20px',
   },
@@ -71,10 +71,10 @@ const styles = {
     borderRadius: '20px',
     gap: '20px',
     height: "600px",
-    display: 'flex',
-    flexDirection: 'row',
+    display: 'flex' as const,
+    flexDirection: 'row' as const,
     alignItems: 'center',
-    flexWrap: 'nowrap',
+    flexWrap: 'nowrap' as const,
     width: '100%',
   },
 };
@@ -164,7 +164,7 @@ const Spotify = ({isDisabled, DJName}:{isDisabled:boolean, DJName:string}) => {
           </div>
           }
         
-        <SpotifyPlayer PlaylistOptions={PlaylistOptions} activeIndex={activeIndex} isDisabled={isDisabled} setIsPlaying={setIsPlaying} />
+        <SpotifyPlayer PlaylistOptions={PlaylistOptions} activeIndex={activeIndex} isDisabled={isDisabled}/>
       </div>
       <div className="relative">
         {DJName && <DJIcon name={DJName}/>}
