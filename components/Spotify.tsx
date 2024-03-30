@@ -68,19 +68,23 @@ const styles = {
   outerContainer: {
     background: '#83B692',
     padding: '20px',
+    paddingTop: '40px',
     borderRadius: '20px',
     gap: '20px',
-    height: "600px",
+    height: "100%",
     display: 'flex' as const,
     flexDirection: 'row' as const,
     alignItems: 'center',
-    flexWrap: 'nowrap' as const,
+    justifyContent: 'center',
+    flexWrap: 'wrap' as const,
     width: '100%',
+    maxWidth: '1200px',
+    overflow: 'hidden',
   },
 };
 const DJIcon = ({name}:{name:string}) => {
   return (
-    <div className="rounded-full text-4xl w-40 h-40 bg-pink absolute -bottom-5 -right-2 z-20 text-center flex font-medium justify-center items-center">
+    <div className="rounded-full text-4xl w-40 h-40 bg-pink absolute -bottom-2 -left-5 z-20 text-center flex font-medium justify-center items-center">
           {name} 
       </div>
   )
@@ -132,7 +136,7 @@ const Spotify = ({isDisabled, DJName}:{isDisabled:boolean, DJName:string}) => {
   }, []);
 
   return (
-    <>
+    <div className="self-center">
     <style>
         {`
           @keyframes rotateDisk {
@@ -146,32 +150,32 @@ const Spotify = ({isDisabled, DJName}:{isDisabled:boolean, DJName:string}) => {
         `}
       </style>
     <div style={styles.outerContainer}>
-      <div style={styles.playContainer}>
-        {!isDisabled &&         
-        <div style={styles.playlistContainer}>
-        {PlaylistOptions.map((playlist, index) => (
-            <div
-              key={playlist.uri}
-              style={{
-                ...styles.playlistItem,
-                ...(index === activeIndex ? styles.activePlaylistItem : {}),
-              }}
-              onClick={() => handlePlaylistClick(index)}
-            >
-              {playlist.title}
-            </div>
-          ))}
-          </div>
-          }
-        
-        <SpotifyPlayer PlaylistOptions={PlaylistOptions} activeIndex={activeIndex} isDisabled={isDisabled}/>
-      </div>
       <div className="relative">
-        {DJName && <DJIcon name={DJName}/>}
-        <GiphyEmbed isPlaying={isPlaying}/>
-      </div>
+          {DJName && <DJIcon name={DJName}/>}
+          <GiphyEmbed isPlaying={isPlaying}/>
+        </div>
+        <div style={styles.playContainer}>
+          {!isDisabled &&         
+          <div style={styles.playlistContainer}>
+          {PlaylistOptions.map((playlist, index) => (
+              <div
+                key={playlist.uri}
+                style={{
+                  ...styles.playlistItem,
+                  ...(index === activeIndex ? styles.activePlaylistItem : {}),
+                }}
+                onClick={() => handlePlaylistClick(index)}
+              >
+                {playlist.title}
+              </div>
+            ))}
+            </div>
+            }
+          
+          <SpotifyPlayer PlaylistOptions={PlaylistOptions} activeIndex={activeIndex} isDisabled={isDisabled}/>
+        </div>
     </div>
-    </>
+    </div>
   );
 };
 

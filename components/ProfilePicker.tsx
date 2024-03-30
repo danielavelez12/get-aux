@@ -11,7 +11,7 @@ const ProfilePicker = ({ setIsDisabled, setDJName }: {setIsDisabled:any, setDJNa
     };
 
     return (
-        <div className="w-50 flex flex-row flex-1 gap-5">
+        <div className="w-50 flex flex-row flex-1 gap-5 flex-wrap align-center text-center justify-center">
             <div>
                 <input value={inputValue} onChange={handleInputChange} type="text" placeholder="name" className="h-10 w-40 rounded-lg block text-black m-30 p-5" />
             </div>
