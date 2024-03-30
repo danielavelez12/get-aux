@@ -19,7 +19,7 @@ const Main = () => {
           </div>   
             <div className="animate-bounce flex flex-col items-center justify-center">
             </div>
-            <ProfilePicker setIsDisabled={setIsDisabled} isDisabled={isDisabled} setDJName={setDJName} />
+            <ProfilePicker setIsDisabled={setIsDisabled} setDJName={setDJName} />
             <Spotify isDisabled={isDisabled} DJName={DJName}/>
         </div>
     )
