@@ -21,7 +21,7 @@ const App = () => {
   return (
     <main className="bg-violet flex min-h-screen flex-col items-center justify-center p-6 bg-gradient-to-r from-purple-500 to-pink-500">
       <div className={`${softieFont.variable} font-sans`}>
-        <div className="z-10 max-w-4xl w-full flex flex-col items-center justify-between gap-8 text-sm text-white lg:flex-row lg:gap-12">     
+        <div className="z-10 w-full flex flex-col items-center justify-between gap-8 text-sm text-white lg:flex-row lg:gap-12">     
           <div className="self-start lg:self-center">
             <Main />
           </div>

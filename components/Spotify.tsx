@@ -75,9 +75,10 @@ const styles = {
     flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'nowrap',
+    width: '100%',
   },
 };
-const DJIcon = ({name}) => {
+const DJIcon = ({name}:{name:string}) => {
   return (
     <div className="rounded-full text-4xl w-40 h-40 bg-pink absolute -bottom-5 -right-2 z-20 text-center flex font-medium justify-center items-center">
           {name} 
@@ -85,10 +86,14 @@ const DJIcon = ({name}) => {
   )
 }
 
+interface SpotifyEmbedController {
+  loadUri: (uri: string) => void;
+}
 
-const Spotify = ({isDisabled, DJName}) => {
+
+const Spotify = ({isDisabled, DJName}:{isDisabled:boolean, DJName:string}) => {
   const [activeIndex, setActiveIndex] = useState(0); // Tracks the active playlist index
-  const [iframeAPI, setIframeAPI] = useState(null); // Stores the IFrame API once loaded
+  const [iframeAPI, setIframeAPI] = useState<SpotifyEmbedController | null>(null); // Stores the IFrame API once loaded
   const [isPlaying, setIsPlaying] = useState(true);  
   
   const handlePlaylistClick = (index: number) => {

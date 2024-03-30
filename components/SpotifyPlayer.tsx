@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SpotifyPlayer = ({ PlaylistOptions, activeIndex, isDisabled, setIsPlaying }) => {
+const SpotifyPlayer = ({ PlaylistOptions, activeIndex, isDisabled }:{PlaylistOptions:any, activeIndex:number, isDisabled:boolean}) => {
   const overlayStyle = {
     position: 'absolute' as const,
     top: 0,

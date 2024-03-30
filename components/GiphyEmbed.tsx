@@ -1,12 +1,12 @@
-const GiphyEmbed = ({isPlaying}) => {
+const GiphyEmbed = ({isPlaying}:{isPlaying:boolean}) => {
     const iframeStyle = {
-      position: 'relative',
+      position: 'relative' as const,
       width: '382px',
       height: '480px',
     };
   
     const overlayStyle = {
-      position: 'absolute',
+      position: 'absolute' as const,
       top: '0',
       left: '0',
       width: '100%',

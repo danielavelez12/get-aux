@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ProfilePicker = ({ setIsDisabled, isDisabled, setDJName }) => {
+const ProfilePicker = ({ setIsDisabled, setDJName }: {setIsDisabled:any, setDJName:any}) => {
     // State to hold the input value
     const [inputValue, setInputValue] = useState('');
 
